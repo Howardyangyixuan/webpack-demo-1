@@ -8,6 +8,10 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "index.[contenthash].js",
   },
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./dist",
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "Y-y_x webpack template",
@@ -18,7 +22,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["css-loader"],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
